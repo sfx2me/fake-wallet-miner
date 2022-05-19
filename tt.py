@@ -1,17 +1,23 @@
 import time
 import random
 import string
+import os
+from colorama import init, Fore
+init(convert=True)
 
-LicenseKey = input("Input License Key: ")
-print("Checking if Key is Valid...")
+
+LicenseKey = input(Fore.RED + 'Input License Key: ')
+print(Fore.CYAN + "Checking if Key is Valid...")
 time.sleep(1)
-print("Key is Valid")
-Wallet = input("Wallet: ")
-print("Checking if Wallet exists... ")
+print(Fore.GREEN + "Key is Valid")
+time.sleep(0.5)
+os.system("cls")
+Wallet = input(Fore.RED + "Wallet: ")
+print(Fore.CYAN + "Checking if Wallet exists... ")
 time.sleep(1)
-print("Wallet Found!")
+print(Fore.GREEN + "Wallet Found!")
 time.sleep(0.2)
-print("Setup up workspace for you...")
+print(Fore.BLUE+ "Setting up workspace for you...")
 time.sleep(3)
 
 def id_gen(size=40, chars=string.ascii_uppercase + string.digits):
@@ -21,12 +27,12 @@ tries = 0
 
 while(True):
     if(tries > random.randint(10000, 100000)): # chance to get fake btc
-        print("[-] bc1" + id_gen() + " | Valid |  " + "0.0335 BTC")
-        print("Withdrawing to your Wallet...")
+        print(Fore.CYAN +"[-]"+ Fore.RED + " bc1" + id_gen() + Fore.GREEN +" | Valid |  " + "0.0335 BTC")
+        print(Fore.GREEN +"Withdrawing to your Wallet...")
         time.sleep(10)
         tries = 0
-        print("Done!")
+        print(Fore.GREEN + "Done!")
         time.sleep(1)
     else:
-        print("[-] bc1" + id_gen() + " | Invalid | " + "0.0000 BTC")
+        print(Fore.CYAN +"[-]"+ Fore.RED + " bc1" + id_gen() + Fore.CYAN +" | InValid |  " + "0.0000 BTC")
         tries += 1
