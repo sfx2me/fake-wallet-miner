@@ -7,10 +7,15 @@ init(convert=True)
 
 
 LicenseKey = input(Fore.RED + 'Input License Key: ')
-print(Fore.CYAN + "Checking if Key is Valid...")
-time.sleep(1)
-print(Fore.GREEN + "Key is Valid")
-time.sleep(0.5)
+if LicenseKey == "123":
+    print(Fore.GREEN + "Key is Valid!")
+    time.sleep(0.5)
+else:
+    print(Fore.RED + "Invalid Key!")
+    print(Fore.RED + "Press Enter to quit!")
+    input("")
+    exit(123)
+
 os.system("cls")
 Wallet = input(Fore.RED + "Wallet: ")
 print(Fore.CYAN + "Checking if Wallet exists... ")
@@ -27,7 +32,7 @@ tries = 0
 
 while(True):
     if(tries > random.randint(10000, 100000)): # chance to get fake btc
-        print(Fore.CYAN +"[-]"+ Fore.RED + " bc1" + id_gen() + Fore.GREEN +" | Valid |  " + "0.0335 BTC")
+        print(Fore.CYAN +"[-]"+ Fore.RED + " bc1" + id_gen() + Fore.GREEN +" |  Valid  |  " + str(round(random.uniform(0,2), 4)), "BTC")
         print(Fore.GREEN +"Withdrawing to your Wallet...")
         time.sleep(10)
         tries = 0
