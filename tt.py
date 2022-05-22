@@ -4,7 +4,23 @@ import string
 import os
 from colorama import init, Fore
 init(convert=True)
+import subprocess, requests
 
+hardwareid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
+site = requests.get("https://pastebin.com/raw/Kf8BZQ4H")
+
+try:
+    if hardwareid in site.text:
+        pass
+    else:
+        print("You are not Whitelisted!")
+        print(f"Your HWID is {hardwareid}")
+        input()
+        exit(123)
+except:
+    print("Failed to connect to database")
+    input()
+    exit(123)
 
 LicenseKey = input(Fore.RED + 'Input License Key: ')
 if LicenseKey == "123":
