@@ -7,7 +7,7 @@ init(convert=True)
 import subprocess, requests
 
 hardwareid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
-site = requests.get("https://pastebin.com/raw/Kf8BZQ4H")
+site = requests.get("https://pastebin.com/raw/")
 
 try:
     if hardwareid in site.text:
