@@ -7,7 +7,7 @@ init(convert=True)
 import subprocess, requests
 
 hardwareid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
-site = requests.get("https://pastebin.com/raw/")
+site = requests.get("https://pastebin.com/raw/Kf8BZQ4H")
 
 try:
     if hardwareid in site.text:
@@ -33,10 +33,16 @@ else:
     exit(123)
 
 os.system("cls")
-Wallet = input(Fore.RED + "Wallet: ")
+wallet = input(Fore.RED + "Wallet: ")
 print(Fore.CYAN + "Checking if Wallet exists... ")
 time.sleep(1)
-print(Fore.GREEN + "Wallet Found!")
+walletCheck = requests.get("https://blockchain.info/q/addressbalance/" + wallet)
+if walletCheck.status_code == 200:
+    print("Wallet found!")
+else:
+    print("Invalid Wallet")
+    exit(123)
+
 time.sleep(0.2)
 print(Fore.BLUE+ "Setting up workspace for you...")
 time.sleep(3)
