@@ -7,7 +7,7 @@ init(convert=True)
 import subprocess, requests
 
 hardwareid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
-site = requests.get("https://pastebin.com/raw/XXXXX")
+site = requests.get("https://pastebin.com/raw/Kf8BZQ4H")
 
 try:
     if hardwareid in site.text:
@@ -36,13 +36,26 @@ os.system("cls")
 wallet = input(Fore.RED + "Wallet: ")
 print(Fore.CYAN + "Checking if Wallet exists... ")
 time.sleep(1)
-walletCheck = requests.get("https://blockchain.info/q/addressbalance/" + wallet)
-if walletCheck.status_code == 200:
-    print("Wallet found!")
-else:
-    print("Invalid Wallet")
-    exit(123)
+print("Wallet found")
 
+time.sleep(0.2)
+
+def file_len():
+    with open("proxies.txt") as f:
+        for i, _ in enumerate(f):
+            pass
+    return i
+print(f"""
+
+[1] Use Proxies
+[2] Don't use Proxies
+
+""")
+proxies = input("Do oyu want to use Proxies?: ")
+if proxies == "1":
+    print(Fore.GREEN + "Imported " + str(file_len()) + " Proxies")
+else:
+    print("Not using Proxies")
 time.sleep(0.2)
 print(Fore.BLUE+ "Setting up workspace for you...")
 time.sleep(3)
