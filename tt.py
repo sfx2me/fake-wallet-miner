@@ -6,8 +6,10 @@ from colorama import init, Fore
 init(convert=True)
 import subprocess, requests
 
+PASTE_BIN_URL = "pastebin.com/raw/XXXXX"
+
 hardwareid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
-site = requests.get("https://pastebin.com/raw/XXXXX")
+site = requests.get(PASTE_BIN_URL)
 
 try:
     if hardwareid in site.text:
@@ -15,6 +17,8 @@ try:
     else:
         print("You are not Whitelisted!")
         print(f"Your HWID is {hardwareid}")
+        print("Setup a pastebin with your HWID and replace the example link in line 9 with yours!")
+        time.sleep(30)
         input()
         exit(123)
 except:
