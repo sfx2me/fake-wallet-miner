@@ -2,3 +2,5 @@
 
 Feel free to join my discord!
 https://discord.gg/q9GBgjMK4f
+
+Pls star this repo :)
