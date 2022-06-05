@@ -6,7 +6,7 @@ from colorama import init, Fore
 init(convert=True)
 import subprocess, requests
 
-PASTE_BIN_URL = "pastebin.com/raw/XXXXX"
+PASTE_BIN_URL = "https://pastebin.com/raw/XXXXX"
 
 hardwareid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
 site = requests.get(PASTE_BIN_URL)
