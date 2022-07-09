@@ -3,8 +3,10 @@ import random
 import string
 import os
 from colorama import init, Fore
+import subprocess
+import requests
+
 init(convert=True)
-import subprocess, requests
 
 PASTE_BIN_URL = "https://pastebin.com/jURv2gNG"
 
@@ -20,21 +22,21 @@ try:
         print("Setup a pastebin with your HWID and replace the example link in line 9 with yours!")
         time.sleep(30)
         input()
-        exit(123)
+        exit(0)
 except:
     print("Failed to connect to database")
     input()
-    exit(123)
+    exit(0)
 
-LicenseKey = input(Fore.RED + 'Input License Key: ')
-if LicenseKey == "123":
+license_key = input(Fore.RED + 'Input License Key: ')
+if license_key == "123":
     print(Fore.GREEN + "Key is Valid!")
     time.sleep(0.5)
 else:
     print(Fore.RED + "Invalid Key!")
     print(Fore.RED + "Press Enter to quit!")
     input("")
-    exit(123)
+    exit(0)
 
 os.system("cls")
 wallet = input(Fore.RED + "Wallet: ")
@@ -50,10 +52,8 @@ def file_len():
             pass
     return i
 print(f"""
-
 [1] Use Proxies
 [2] Don't use Proxies
-
 """)
 proxies = input("Do oyu want to use Proxies?: ")
 if proxies == "1":
