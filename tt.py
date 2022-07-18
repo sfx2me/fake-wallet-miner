@@ -5,7 +5,7 @@ import os
 from colorama import init, Fore
 init(convert=True)
 import subprocess, requests
-
+os.system("cls")
 PASTE_BIN_URL = "https://pastebin.com/jURv2gNG"
 
 hardwareid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
